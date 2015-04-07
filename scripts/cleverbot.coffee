@@ -1,4 +1,4 @@
-# Description:
+alfred # Description:
 #   Example scripts for you to examine and try out.
 #
 # Notes:

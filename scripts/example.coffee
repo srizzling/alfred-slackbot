@@ -12,11 +12,13 @@ module.exports = (robot) ->
 
    robot.hear /badger/i, (msg) ->
      msg.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+
+   robot.respond /m2t, (msg)
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
   #   if doorType is "pod bay"
-  #     msg.reply "I'm afraid I can't let you do that."
+  #     msg.reply "I'm afraid I can't let you ldo that."
   #   else
   #     msg.reply "Opening #{doorType} doors"
   #
@@ -74,14 +76,14 @@ module.exports = (robot) ->
   #     msg.send "Not annoying you right now, am I?"
   #
   #
-  # robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
-  #   room   = req.params.room
-  #   data   = JSON.parse req.body.payload
-  #   secret = data.secret
-  #
-  #   robot.messageRoom room, "I have a secret: #{secret}"
-  #
-  #   res.send 'OK'
+  robot.router.post '/hubot/movies', (req, res) ->
+     room   = "movies"
+     data   = JSON.parse req.body.payload
+     secret = data.movies
+
+     robot.messageRoom room, "Movies scheduled to download today, #{secret}"
+  
+     res.send 'OK'
   #
   # robot.error (err, msg) ->
   #   robot.logger.error "DOES NOT COMPUTE"
