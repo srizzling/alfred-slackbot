@@ -12,6 +12,7 @@ module.exports = (robot) ->
 
    robot.hear /badger/i, (msg) ->
      msg.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
@@ -74,13 +75,13 @@ module.exports = (robot) ->
   #     msg.send "Not annoying you right now, am I?"
   #
   #
-   robot.router.post '/hubot/movies', (req, res) ->
-     room   = "movies"
+   robot.router.post '/hubot/movies/:room', (req, res) ->
+     room   = req.params.room
      data   = JSON.parse req.body.payload
      secret = data.movies
-
-     robot.messageRoom room, "Movies scheduled to download today, #{secret}"
   
+     robot.messageRoom room, "I have a secret: #{secret}"
+
      res.send 'OK'
   #
   # robot.error (err, msg) ->
