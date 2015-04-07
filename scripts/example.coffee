@@ -76,7 +76,7 @@ module.exports = (robot) ->
   #     msg.send "Not annoying you right now, am I?"
   #
   #
-  robot.router.post '/hubot/movies', (req, res) ->
+   robot.router.post '/hubot/movies', (req, res) ->
      room   = "movies"
      data   = JSON.parse req.body.payload
      secret = data.movies
